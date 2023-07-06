@@ -11,9 +11,6 @@ function Launches (){
             .then(value => setLaunches(value))
     },[])
 
-    console.log(launches);
-
-
 
     return (
         <div>
