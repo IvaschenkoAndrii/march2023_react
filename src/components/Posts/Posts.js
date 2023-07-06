@@ -2,9 +2,11 @@ import {useEffect, useState} from "react";
 
 import {Post} from "../Post/Post";
 
+
 function Posts (){
 
     const [posts, setPosts] = useState([]);
+
 
     useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/posts')
@@ -12,30 +14,23 @@ function Posts (){
             .then(value => setPosts(value))
     },[])
 
-    console.log(posts);
+
+    function details (body)  {
+        alert(body);
+     }
 
     return (
         <div>
             {posts.map((post,id)=>
                 <Post
                     key={id}
-                    post={post}/>)}
+                    post={post}
+                    details={details}
+                />)}
+
         </div>
     )
 }
-//
-//     return (
-//         <>
-//
-//             {posts.map((post, id) => {
-//                 return (
-//                     <Post
-//                         key={id}
-//                         title={post.title}
-//
-//                     />);
-//             })}
-//         </>);
-// };
+
 
 export {Posts}

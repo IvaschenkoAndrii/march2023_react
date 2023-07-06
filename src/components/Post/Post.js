@@ -1,10 +1,11 @@
-function Post ({post}){
+function Post (props){
 
-    let {id,title} = post
+    let {post, details} = props
 
     return (
         <div>
-            {id} {title}
+            {post.id} {post.title}
+                <button onClick={()=>details(post.body)}>Detail</button>
         </div>
     )
 }
