@@ -6,6 +6,7 @@ import {Post} from "../Post/Post";
 function Posts (){
 
     const [posts, setPosts] = useState([]);
+    const [postDetail, setPostDetail] = useState(null)
 
 
     useEffect(()=>{
@@ -16,11 +17,12 @@ function Posts (){
 
 
     function details (body)  {
-        alert(body);
+        setPostDetail(body);
      }
 
     return (
         <div>
+            <h2>{postDetail}</h2>
             {posts.map((post,id)=>
                 <Post
                     key={id}
