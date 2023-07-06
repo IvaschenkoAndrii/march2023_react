@@ -19,7 +19,6 @@ function Users() {
             .then(posts => setPosts(posts))
     }
 
-    console.log(posts);
 
     return (
         <div>
