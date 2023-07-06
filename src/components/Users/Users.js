@@ -6,18 +6,25 @@ function Users() {
     const [users, setUsers] = useState([]);
     const [posts, setPosts] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('https://jsonplaceholder.typicode.com/users')
-    //         .then(value => value.json())
-    //         .then(value => console.log(value))
-    // }, [])
+    useEffect(()=>{
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(value => value.json())
+            .then(users => setUsers(users))
+    },[])
 
 
-    fetch('https://jsonplaceholder.typicode.com/users').then(r => r.json().then(r=> console.log(r)))
+    function showPosts (id){
+        fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
+            .then(value => value.json())
+            .then(posts => setPosts(posts))
+    }
+
+    console.log(posts);
 
     return (
         <div>
-            {users?.map((user, id) => <User key={id} user={user}/>)}
+            <h3>{posts.map(post=><div>{post.body}</div>)}</h3>
+            {users?.map((user, id) => <User key={id} user={user} showPosts={showPosts}/>)}
         </div>
     )
 }
