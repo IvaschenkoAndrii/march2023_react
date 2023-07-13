@@ -26,7 +26,7 @@ function AddUser({setUsers}) {
             },
         })
 
-        // setUsers(users => [...users, user]);
+        setUsers(users => [...users, user]);
     }
 
     return (

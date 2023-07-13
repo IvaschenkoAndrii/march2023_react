@@ -1,6 +1,7 @@
-function User({user}) {
+function User({user,setUsers}) {
 
     const {name, username, email} = user;
+    console.log(setUsers);
 
     return (
         <div>
