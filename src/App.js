@@ -1,5 +1,5 @@
 import './App.css';
-import {AddUser} from "./components/AddUser/AddUser";
+
 import {Users} from "./components/Users/Users";
 
 function App() {
